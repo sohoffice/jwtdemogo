@@ -38,9 +38,7 @@ func SignJwt(g *gin.Context) {
 	})
 	signed, err := token.SignedString(privateKey)
 	if err != nil {
-		g.JSON(http.StatusInternalServerError, gin.H{
-			"code": "CANNOT_SIGN_JWT",
-		})
+		g.JSON(http.StatusInternalServerError, HttpError{JwtSignError, err.Error()})
 	} else {
 		g.JSON(http.StatusOK, gin.H{"token": signed})
 	}
