@@ -9,13 +9,17 @@ client.global.set("token", response.body.token);
 GET http://localhost:8080/v1/jwt-tokens
 Authorization: Bearer {{token}}
 
-### Error, not bearer
+### Get self
+GET http://localhost:8080/v1/self
+x-jwt-claim-nested-claim: foo-bar
+
+### Verify error, not bearer
 GET http://localhost:8080/v1/jwt-tokens
 Authorization: Bad
 
-### Error, bad token
+### Verify error, bad token
 GET http://localhost:8080/v1/jwt-tokens
 Authorization: Bearer bad
 
-### Error, no authorization
+### Verify error, no authorization
 GET http://localhost:8080/v1/jwt-tokens
