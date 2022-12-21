@@ -1,0 +1,30 @@
+basePath: /v1
+info:
+  contact: {}
+paths:
+  /jwt-tokens:
+    get:
+      description: Verify JWT token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Verify JWT token
+      tags:
+      - JWT
+    post:
+      description: Sign JWT token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Sign JWT token
+      tags:
+      - JWT
+swagger: "2.0"
